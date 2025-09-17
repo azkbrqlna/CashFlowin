@@ -46,8 +46,26 @@ export default function KeuanganForm({ onAdd }) {
   // Simpan transaksi baru
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
 
+    if (parseFloat(pemasukan) > 20000000) {
+      toast({
+        title: "Batas Maksimal",
+        description: "Pemasukan tidak boleh lebih dari Rp 20.000.000",
+        variant: "error",
+      });
+      return;
+    }
+
+    if (parseFloat(pengeluaran) > 20000000) {
+      toast({
+        title: "Batas Maksimal",
+        description: "Pengeluaran tidak boleh lebih dari Rp 20.000.000",
+        variant: "error",
+      });
+      return;
+    }
+
+    setLoading(true);
     const jumlah =
       (parseFloat(pemasukan) || 0) - (parseFloat(pengeluaran) || 0);
 
@@ -73,7 +91,6 @@ export default function KeuanganForm({ onAdd }) {
       setPengeluaran("");
       setKetPengeluaran("");
 
-      // Toast sukses
       toast({
         title: "Berhasil Menyimpan",
         description: "Transaksi berhasil ditambahkan.",
@@ -81,7 +98,6 @@ export default function KeuanganForm({ onAdd }) {
       });
     } catch (error) {
       setLoading(false);
-      // Toast error
       toast({
         title: "Gagal Menyimpan",
         description: error.message,
@@ -152,8 +168,14 @@ export default function KeuanganForm({ onAdd }) {
                     value={pemasukan}
                     onChange={(e) => setPemasukan(e.target.value)}
                     disabled={pengeluaran !== ""} // Disable jika pengeluaran diisi
+                    max={20000000}
                     className="focus:ring-2 focus:ring-blue-500"
                   />
+                  {pemasukan > 20000000 && (
+                    <p className="text-red-500 text-sm mt-1">
+                      Maksimal pemasukan adalah Rp 20.000.000
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -182,9 +204,15 @@ export default function KeuanganForm({ onAdd }) {
                   placeholder="Masukkan jumlah pengeluaran"
                   value={pengeluaran}
                   onChange={(e) => setPengeluaran(e.target.value)}
-                  disabled={pemasukan !== ""}
-                  className="focus:ring-2 focus:ring-blue-500"
+                  disabled={pemasukan !== ""} // Disable jika pemasukan diisi
+                  max={20000000}
+                  className="focus:ring-2 focus:ring-red-500"
                 />
+                {pengeluaran > 20000000 && (
+                  <p className="text-red-500 text-sm mt-1">
+                    Maksimal pengeluaran adalah Rp 20.000.000
+                  </p>
+                )}
               </div>
 
               <div>
@@ -192,11 +220,11 @@ export default function KeuanganForm({ onAdd }) {
                   Keterangan Pengeluaran
                 </label>
                 <Input
-                  placeholder="Contoh: Bayar Listrik"
+                  placeholder="Contoh: Belanja bulanan"
                   value={ketPengeluaran}
                   onChange={(e) => setKetPengeluaran(e.target.value)}
-                  disabled={pemasukan !== ""} // Ikut disable jika pemasukan diisi
-                  className="focus:ring-2 focus:ring-blue-500"
+                  disabled={pemasukan !== ""}
+                  className="focus:ring-2 focus:ring-red-500"
                 />
               </div>
             </div>
