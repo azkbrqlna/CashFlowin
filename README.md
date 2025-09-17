@@ -54,3 +54,13 @@ Aplikasi web untuk mengelola **pemasukan** dan **pengeluaran** keuangan. Dibangu
     NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
     NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 ```
+
+4. **Jalankan Aplikasi**
+
+```bash
+    npm run dev
+```
+
+---
+
+_Happy Vibe Coding 😜_
