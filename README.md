@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CashFlowin
 
-## Getting Started
+Aplikasi web untuk mengelola **pemasukan** dan **pengeluaran** keuangan. Dibangun menggunakan **Next.js + Firebase Firestore** dengan dukungan export data ke **Word (.docx)**.
 
-First, run the development server:
+---
+
+## ✨ Fitur Utama
+
+- ✅ Input & penyimpanan data pemasukan dan pengeluaran.
+- ✅ Tampilan riwayat transaksi dalam tabel interaktif.
+- ✅ Filter data berdasarkan **bulan** dan **tahun**.
+- ✅ Export laporan keuangan ke **Microsoft Word (.docx)**.
+- ✅ Perhitungan otomatis **saldo akhir**.
+- ✅ UI modern dengan **shadcn/ui** dan animasi dari **Framer Motion**.
+
+---
+
+## 🛠️ Teknologi yang Digunakan
+
+- [Next.js 14](https://nextjs.org/) – React Framework
+- [Firebase Firestore](https://firebase.google.com/) – Database
+- [shadcn/ui](https://ui.shadcn.com/) – UI Components
+- [Framer Motion](https://www.framer.com/motion/) – Animation
+- [docx](https://www.npmjs.com/package/docx) – Export Word
+- [file-saver](https://www.npmjs.com/package/file-saver) – Download file
+- [Lucide Icons](https://lucide.dev/) – Icon
+
+---
+
+## 🚀 Instalasi
+
+1. **Clone repository**
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+   git clone https://github.com/azkbrqlna/CashFlowin.git
+   cd CashFlowin
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install Dependencies**
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+   npm install
+   atau
+   yarn install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. **Setup Environment Variables**
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+    NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+    NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+    NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+    NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+    NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+    NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+```
