@@ -61,7 +61,6 @@ export default function Home() {
       <footer>
         <div className="mx-auto max-w-4xl px-4 text-center text-sm text-slate-500">
           © {new Date().getFullYear()} All rights reserved | Azka Bariqlana
-          reserved.
         </div>
       </footer>
     </main>
