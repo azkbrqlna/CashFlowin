@@ -41,7 +41,7 @@ export default function KeuanganTable({ refresh }) {
     String(new Date().getFullYear())
   );
 
-  const SALDO_AWAL = 10000000;
+  const SALDO_AWAL = 0;
 
   const fetchData = async () => {
     const q = query(collection(db, "keuangan"), orderBy("created_at", "asc"));
@@ -207,7 +207,7 @@ export default function KeuanganTable({ refresh }) {
               alignment: AlignmentType.CENTER,
               children: [
                 new TextRun({
-                  text: "Laporan Keuangan Masjid Jami' Nurul Huda",
+                  text: "Laporan Keuangan by CashFlowin",
                   bold: true,
                   size: 32,
                 }),
